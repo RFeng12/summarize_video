@@ -1,13 +1,6 @@
-from flask import Flask, request
-from flask import render_template
 import requests
 import time
 import json
-import jsonpickle
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
-from torch.nn.functional import softmax
-from transformers import BertForNextSentencePrediction, BertTokenizer
 from gtts import gTTS
 import funct_paragrapher
 import funct_keyworder

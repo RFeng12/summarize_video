@@ -187,6 +187,7 @@ for animal in animal_list['results'][:6]:
 
 
 
+
         args = argparser.parse_args()
         args.file = "/Users/rfeng12/Library/CloudStorage/OneDrive-Personal/Desktop/summarize_video/static/output.mp4"
         

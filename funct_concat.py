@@ -1,4 +1,3 @@
-import simple_image_download.simple_image_download as simp
 import requests
 from mutagen.mp3 import MP3
 from PIL import Image

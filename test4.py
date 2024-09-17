@@ -13,6 +13,6 @@ A coelacanth is a rare and ancient type of lobe-finned fish belonging to the cla
 
 '''
 
-funct_videomaker.make_video(string.replace("123 -1..43gg3", "?"), "antelope")
+funct_videomaker.make_video(string.replace("123 -1..43gg3", "?"), "Ceolocanth")
 
 

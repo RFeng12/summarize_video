@@ -10,4 +10,8 @@ headers = {
 data = json.loads(requests.get(url, headers=headers).content.decode('utf-8')) # Here you have the data that you need
 #print(json.dumps(data, indent=2))
 #print(data['results'][0]['name'])
-print(data['results'])
+#print(data['results'])
+
+with open('vid_topics.txt', 'w') as f:
+    for line in data['results']:
+        f.write(line['name'] + '\n')

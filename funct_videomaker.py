@@ -16,9 +16,36 @@ from mutagen.mp3 import MP3
 from PIL import Image
 from bing_image_urls import bing_image_urls
 
+import pyautogui
+import time
+import json
+
+#idea: reading the text on the page to determine if you're at the same stage
+from pynput import mouse
+from pynput.keyboard import Key
+
+from pynput.mouse import Listener as MouseListener
+from pynput.keyboard import Listener as KeyboardListener
+from PIL import ImageGrab
+import pyautogui
+
+pyautogui.FAILSAFE = False
+
+import jsonpickle
+
+windowsize = pyautogui.size()
+
+from pynput.keyboard import Key, Controller
+
+keyboard = Controller()
+
+from pynput.mouse import Button, Controller
+
+mouse = Controller()
+
 
 import os
-os.environ["IMAGEIO_FFMPEG_EXE"] = "/opt/homebrew/Cellar/ffmpeg@5/5.1.6/bin/ffmpeg"
+#os.environ["IMAGEIO_FFMPEG_EXE"] = "/opt/homebrew/Cellar/ffmpeg@5/5.1.6/bin/ffmpeg"
 
 
 import imageio
@@ -135,6 +162,8 @@ def make_video(string, whatis):
 
     interval_len = int((len(unfiltered_urls)-len(output))/len(output))
 
+    pyautogui.moveTo(1, 1, duration = 0)
+
     for outputind in range(0, len(output)):
         paragraph = output[outputind]
         paragraph_raw = output_raw[outputind]
@@ -160,9 +189,11 @@ def make_video(string, whatis):
         #slkdf lkdsjflsd lkfsd klf jsdfl jsdlfjlkds fjlsd
         # sdfkjslkfjdslkjfkldsjlksd
         
+        pyautogui.moveTo(1, 1, duration = 0)
+
         time.sleep(3)
 
-
+        
 
         funct_image_getter.download_images(unfiltered_urls[outputind*interval_len:(outputind+1)*interval_len], 4, 0, paragraph, first, im_size)
     
@@ -195,6 +226,8 @@ def make_video(string, whatis):
                 except Exception:
                     continue
         print(list_of_images)
+        if len(list_of_images) == 0:
+            list_of_images.append(Image.open("widelogo.jpg").resize((im_size[0], im_size[1]), Image.Resampling.LANCZOS))
         print("IMAGE LIST LENGTH", len(list_of_images))
         duration = audio_length/len(list_of_images)
 
@@ -250,7 +283,7 @@ def make_video(string, whatis):
 
 
 
-
+    pyautogui.moveTo(1, 1, duration = 0)
     
     folder = filepath + 'video_folder'
     for filename in sorted(os.listdir(folder)):

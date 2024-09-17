@@ -32,7 +32,7 @@ def on_press(key):
     input_log.append([0, 0, time.time()-start, jsonpickle.encode(key), True, 'kp'])
     log_clean.append([0, 0, str(key), True])
     print("Key pressed: {0}".format(key))
-    if key == Key.caps_lock:
+    if key == Key.delete:
         input_log.append(['stop', 'stop', 'stop', 'stop'])
         log_clean.append(['stop', 'stop', 'stop', 'stop'])
         globals()['running'] = False
@@ -123,7 +123,6 @@ with open('eventlist') as filehandle:
     final = json.load(filehandle)
 
 print(len(final))
-
 
 
 

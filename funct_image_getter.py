@@ -1,4 +1,3 @@
-from simple_image_download import simple_image_download as simp
 import re
 import requests
 from PIL import Image, ImageFont, ImageDraw, ImageFilter
@@ -16,8 +15,8 @@ with open("filepath.txt") as file:
     for line in file.readlines():
         filepath = line
 
-font = ImageFont.truetype(r'/Users/rfeng12/Library/CloudStorage/OneDrive-Personal/Desktop/summarize_video/arial.ttf', 16)
-fontsmall = ImageFont.truetype(r'/Users/rfeng12/Library/CloudStorage/OneDrive-Personal/Desktop/summarize_video/arial.ttf', 10)
+font = ImageFont.truetype(r'C:/Users/User/Documents/GitHub/summarize_video/arial.ttf', 16)
+fontsmall = ImageFont.truetype(r'C:/Users/User/Documents/GitHub/summarize_video/arial.ttf', 10)
 
 timeoutsec = 25
 
@@ -33,22 +32,22 @@ def write_source(img_path, caption, x, y, charline, font):
     paragraph = caption
     for word in paragraph.split(' '):
         if len(tempinput) + len(word) > charsperline:
-            Im.text((x+1, y+1), str(tempinput).encode('cp1252'),fill=(0, 0, 0), font=font, align="center")
-            Im.text((x+1, y-1), str(tempinput).encode('cp1252'),fill=(0, 0, 0), font=font, align="center")
-            Im.text((x-1, y+1), str(tempinput).encode('cp1252'),fill=(0, 0, 0), font=font, align="center")
-            Im.text((x-1, y-1), str(tempinput).encode('cp1252'),fill=(0, 0, 0), font=font, align="center")
+            Im.text((x+1, y+1), str(tempinput),fill=(0, 0, 0), font=font, align="center")
+            Im.text((x+1, y-1), str(tempinput),fill=(0, 0, 0), font=font, align="center")
+            Im.text((x-1, y+1), str(tempinput),fill=(0, 0, 0), font=font, align="center")
+            Im.text((x-1, y-1), str(tempinput),fill=(0, 0, 0), font=font, align="center")
 
-            Im.text((x, y), str(tempinput).encode('cp1252'),fill=(255, 255, 255), font=font, align="center")
+            Im.text((x, y), str(tempinput),fill=(255, 255, 255), font=font, align="center")
             tempinput = ""
             y += 15
         tempinput += ' ' + word
 
-    Im.text((x+1, y+1), str(tempinput).encode('cp1252'),fill=(0, 0, 0), font=font, align="center")
-    Im.text((x+1, y-1), str(tempinput).encode('cp1252'),fill=(0, 0, 0), font=font, align="center")
-    Im.text((x-1, y+1), str(tempinput).encode('cp1252'),fill=(0, 0, 0), font=font, align="center")
-    Im.text((x-1, y-1), str(tempinput).encode('cp1252'),fill=(0, 0, 0), font=font, align="center")
+    Im.text((x+1, y+1), str(tempinput),fill=(0, 0, 0), font=font, align="center")
+    Im.text((x+1, y-1), str(tempinput),fill=(0, 0, 0), font=font, align="center")
+    Im.text((x-1, y+1), str(tempinput),fill=(0, 0, 0), font=font, align="center")
+    Im.text((x-1, y-1), str(tempinput),fill=(0, 0, 0), font=font, align="center")
 
-    Im.text((x, y), str(tempinput).encode('cp1252'),fill=(255, 255, 255), font=font, align="center")
+    Im.text((x, y), str(tempinput),fill=(255, 255, 255), font=font, align="center")
 
     I.save(filepath + img_path)
 
@@ -170,11 +169,6 @@ def download_images(keywords, num, index, paragraph, outputslice, im_size):
             '''
                 
             ind += 1
-
-    my_downloader = simp.simple_image_download()
-    my_downloader.extensions = '.jpg'
-
-
 
 
     return 1
