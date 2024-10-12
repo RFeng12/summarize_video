@@ -15,7 +15,7 @@ print(animal_list)
 
 parenthetical = "(animal)"
 
-skip_first = True
+skip_first = False
 
 import funct_videomaker
 import shutil
